@@ -1,0 +1,26 @@
+{
+    "business": {
+      "name": "We Care Community",
+      "tagline": "NDIS Support Services Sydney",
+      "description": "Professional NDIS support services including personal care and daily assistance.",
+      "phone": "0400 000 000",
+      "email": "info@wecarecommunity.com.au",
+      "address": "Sydney, Australia",
+      "website": "https://www.wecarecommunity.com.au",
+      "logo":"logo/logo.png",
+      "ogImage": "/logo/og-image.jpg"
+    },
+  
+    "social": {
+      "facebook": "",
+      "instagram": "",
+      "linkedin": ""
+    },
+  
+    "seo": {
+      "title": "We Care Community | NDIS Support Services Sydney",
+      "description": "We Care Community provides professional NDIS support services in Sydney.",
+      "ogImage": "/og-image.jpg"
+    }
+  }
+  

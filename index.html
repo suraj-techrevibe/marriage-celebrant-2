@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <title>%VITE_SITE_TITLE%</title>
+
+    <meta name="description" content="%VITE_SITE_DESCRIPTION%" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="%VITE_SITE_TITLE%" />
+    <meta property="og:description" content="%VITE_SITE_DESCRIPTION%" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_OG_IMAGE%" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "%VITE_SITE_NAME%",
+        "address": "%VITE_SITE_ADDRESS%",
+        "telephone": "%VITE_SITE_PHONE%",
+        "url": "%VITE_SITE_URL%",
+        "logo": "%VITE_SITE_LOGO%"
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
