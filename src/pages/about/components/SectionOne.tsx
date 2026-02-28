@@ -20,8 +20,8 @@ const SectionOne: React.FC = () => {
         <h2>About Us</h2>
 
         <p>
-          Nirvana Wedding and Event Management, your partners in Crafting
-          Unforgettable Moments. Welcome to Nirvana Wedding and Event
+          Nirava Wedding and Event Management, your partners in Crafting
+          Unforgettable Moments. Welcome to Nirava Wedding and Event
           Management, where dreams come alive and memories are meticulously
           crafted.
           <br /><br />

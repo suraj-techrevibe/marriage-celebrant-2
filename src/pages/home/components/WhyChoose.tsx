@@ -25,7 +25,7 @@ export default function WhyChoose() {
 
         {/* Heading */}
         <h2 className="heading-font heading-lg text-primary mb-6">
-          Why Choose Nirvana?
+          Why Choose Nirava?
         </h2>
 
         <p className="text-muted max-w-2xl mx-auto leading-relaxed mb-16">

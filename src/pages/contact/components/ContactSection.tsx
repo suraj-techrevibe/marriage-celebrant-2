@@ -36,7 +36,7 @@ export default function ContactSection() {
 
             <div className="mt-8 space-y-3 text-muted">
               <p>📞 Phone: +32 685-5910</p>
-              <p>✉️ Email: nirvana@outlook.com</p>
+              <p>✉️ Email: Nirava@outlook.com</p>
               <p>📍 Location: New York, USA</p>
             </div>
           </div>

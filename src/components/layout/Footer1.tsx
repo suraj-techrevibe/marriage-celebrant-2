@@ -76,7 +76,7 @@ const Footer1: React.FC = () => {
 
         {/* Bottom Copyright */}
         <div className="mt-12 text-center text-sm text-gray-500">
-          © 2025 Nirvana Wedding. All rights reserved
+          © 2025 Nirava Wedding. All rights reserved
         </div>
       </div>
     </footer>

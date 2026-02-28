@@ -45,7 +45,7 @@ const AboutUs = () => {
               and ensure you receive the ceremony and atmosphere you want.
               <br />
               <br />
-              Make your special day unforgettable with Celebrant Nirvana, a
+              Make your special day unforgettable with Celebrant Nirava, a
               professional Marriage Celebrant in Sydney. We specialise in
               creating personalised and meaningful wedding ceremonies tailored
               to your love story.
