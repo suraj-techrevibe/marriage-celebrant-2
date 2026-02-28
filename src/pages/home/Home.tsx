@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import Hero from "./components/Hero";
 import { useEdit } from "../../editable/context/EditContext";
 
 import AboutUs from "./components/AboutUs";
-import { Users, ShieldCheck, Heart } from "lucide-react"; // import icons
 import HomeSection1 from "./components/HomeSection1";
 import HomeSection2 from "./components/HomeSection2";
 import Section3 from "./components/section3";

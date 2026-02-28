@@ -3,7 +3,6 @@ import FaqAccordion from "./components/FaqAccordion";
 import FaqCTA from "./components/FaqCTA";
 import FaqIntro from "./components/FaqIntro";
 import img from "../../assets/hero/newlyweds.jpg";
-import ContentWrapper from "../../components/global/ContentWrapper";
 
 
 

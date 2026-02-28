@@ -1,4 +1,3 @@
-import React from "react";
 import img from "../../../assets/hero/figma-image5.png";
 
 export default function HomeSection1() {

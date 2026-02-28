@@ -1,4 +1,4 @@
-import React from "react";
+
 import img from "../../../assets/hero/figma-image20.png";
 import img1 from "../../../assets/hero/figma-image18.png";
 import img2 from "../../../assets/hero/figma-image4.png";

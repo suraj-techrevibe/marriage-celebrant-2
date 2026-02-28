@@ -1,4 +1,4 @@
-import React from "react";
+
 import img from "../../../assets/hero/newlyweds.jpg";
 import ContentWrapper from "../../../components/global/ContentWrapper";
 

@@ -1,7 +1,6 @@
 import ContactSection from './components/ContactSection'
 import Hero from '../../components/global/herosection/Hero1'
 import img from "../../assets/hero/classic-white-gold-wedding-rings-red-bouquet.jpg";
-import ContactForm from './components/ContactForm';
 
 
 function Contact() {

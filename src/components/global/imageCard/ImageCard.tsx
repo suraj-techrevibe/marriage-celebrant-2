@@ -1,4 +1,4 @@
-import React from "react";
+
 
 interface ImageSliderProps {
   imgTitle?: string; // optional if you might not use it

@@ -32,7 +32,7 @@ const NavBar2: React.FC = () => {
 
   const allLinks: NavItem[] = [...leftLinks, ...rightLinks];
 
-  const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
+  const navLinkStyle = ({  }: { isActive: boolean }) =>
     `
     font-semibold transition-all duration-300
     ${scrolled ? "text-sm" : "text-base"}
@@ -40,59 +40,56 @@ const NavBar2: React.FC = () => {
 
   return (
     <header
-    className={`fixed top-0 left-0 right-0 z-[999] transition-all ${
-      scrolled
-        ? "bg-white/95 backdrop-blur shadow-md"
-        : "bg-white"
-    }`}
-    style={{
-      borderBottom: "1px solid",
-      borderImage:
-        "linear-gradient(to right, transparent, var(--color-primary), transparent) 1",
-    }}
-  >
+      className={`fixed top-0 left-0 right-0 z-[999] transition-all ${
+        scrolled ? "bg-white/95 backdrop-blur shadow-md" : "bg-white"
+      }`}
+      style={{
+        borderBottom: "1px solid",
+        borderImage:
+          "linear-gradient(to right, transparent, var(--color-primary), transparent) 1",
+      }}
+    >
       {/* ===== Desktop Nav ===== */}
       <div className="hidden md:flex max-w-6xl mx-auto justify-between items-center py-4">
-
         {/* Left Links */}
         <ul className="flex items-center pl-24 gap-16">
           {leftLinks.map((link) => (
             <li key={link.name}>
-            <NavLink
-  to={link.to}
-  onClick={() => setIsOpen(false)}
-  className={({ isActive }) =>
-    `group relative font-semibold transition-all duration-300 ${
-      scrolled ? "text-sm" : "text-base"
-    }`
-  }
-  style={({ isActive }) => ({
-    color: isActive
-      ? "var(--color-primary)"
-      : "var(--color-text-main)",
-  })}
->
-  {({ isActive }) => (
-    <span className="relative inline-block">
-      {link.name}
+              <NavLink
+                to={link.to}
+                onClick={() => setIsOpen(false)}
+                className={({  }) =>
+                  `group relative font-semibold transition-all duration-300 ${
+                    scrolled ? "text-sm" : "text-base"
+                  }`
+                }
+                style={({ isActive }) => ({
+                  color: isActive
+                    ? "var(--color-primary)"
+                    : "var(--color-text-main)",
+                })}
+              >
+                {({ isActive }) => (
+                  <span className="relative inline-block">
+                    {link.name}
 
-      {/* Animated underline */}
-      <span
-        className={`absolute left-0 -bottom-1 h-[2px] transition-all duration-300`}
-        style={{
-          width: isActive ? "100%" : "0%",
-          background: "var(--color-primary)",
-        }}
-      />
+                    {/* Animated underline */}
+                    <span
+                      className={`absolute left-0 -bottom-1 h-[2px] transition-all duration-300`}
+                      style={{
+                        width: isActive ? "100%" : "0%",
+                        background: "var(--color-primary)",
+                      }}
+                    />
 
-      {/* Hover effect */}
-      <span
-        className="absolute left-0 -bottom-1 h-[2px] w-0 group-hover:w-full transition-all duration-300"
-        style={{ background: "var(--color-primary)" }}
-      />
-    </span>
-  )}
-</NavLink>
+                    {/* Hover effect */}
+                    <span
+                      className="absolute left-0 -bottom-1 h-[2px] w-0 group-hover:w-full transition-all duration-300"
+                      style={{ background: "var(--color-primary)" }}
+                    />
+                  </span>
+                )}
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -112,11 +109,11 @@ const NavBar2: React.FC = () => {
         <ul className="flex items-start pr-36 gap-16">
           {rightLinks.map((link) => (
             <li key={link.name}>
-             <NavLink
-  to={link.to}
-  onClick={() => setIsOpen(false)}
-  className={({ isActive }) =>
-    `
+              <NavLink
+                to={link.to}
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `
     relative font-semibold transition-all duration-300
     ${scrolled ? "text-sm" : "text-base"}
     ${isActive ? "after:w-full" : ""}
@@ -132,15 +129,15 @@ const NavBar2: React.FC = () => {
     after:duration-300
     hover:after:w-full
   `
-  }
-  style={({ isActive }) => ({
-    color: isActive
-      ? "var(--color-primary)"
-      : "var(--color-text-main)",
-  })}
->
-  {link.name}
-</NavLink>
+                }
+                style={({ isActive }) => ({
+                  color: isActive
+                    ? "var(--color-primary)"
+                    : "var(--color-text-main)",
+                })}
+              >
+                {link.name}
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -182,9 +179,7 @@ const NavBar2: React.FC = () => {
                 <NavLink
                   to={link.to}
                   onClick={() => setIsOpen(false)}
-                  className={({ isActive }) =>
-                    `${navLinkStyle({ isActive })}`
-                  }
+                  className={({ isActive }) => `${navLinkStyle({ isActive })}`}
                   style={({ isActive }) => ({
                     color: isActive
                       ? "var(--color-primary)"

@@ -55,7 +55,7 @@
 
 
 
-// import React from "react";
+// 
 // import img from "../../../assets/house/1.jpg";
 // import Hero from "../../../globalComponent/herosection/Hero";
 

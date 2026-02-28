@@ -1,4 +1,4 @@
-import React from "react";
+
 import img1 from "../../../assets/hero/figma-image22.png";
 import img2 from "../../../assets/hero/figma-image23.png";
 import ContentWrapper from "../../../components/global/ContentWrapper";

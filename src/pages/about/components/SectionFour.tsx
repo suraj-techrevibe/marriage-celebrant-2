@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 import img from "../../../assets/hero/beautiful-bride-groom.jpg";
 import ContentWrapper from "../../../components/global/ContentWrapper";
