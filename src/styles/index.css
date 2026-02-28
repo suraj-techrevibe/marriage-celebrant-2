@@ -1,109 +1,277 @@
+/* =========================================================
+   1️⃣ GOOGLE FONTS
+========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* =========================================================
+   2️⃣ TAILWIND BASE
+========================================================= */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-
-
-.great-vibes-regular {
-  font-family: "Great Vibes", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
+/* =========================================================
+   3️⃣ DESIGN TOKENS (CENTRAL CONTROL)
+========================================================= */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* ---------- BRAND COLORS ---------- */
+  --color-primary: #ea2f16;
+  --color-primary-hover: #c92510;
+  --color-secondary: #2d2b2b;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* ---------- BACKGROUND ---------- */
+  --color-bg-main: #ffffff;
+  --color-bg-soft: #f7f3f2;
+
+  /* ---------- TEXT ---------- */
+  --color-text-main: #1f2937;
+  --color-text-muted: #6b7280;
+
+  /* ---------- RADIUS ---------- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 9999px;
+
+  /* ---------- SPACING ---------- */
+  --section-padding: 6rem;
 }
 
-
-
-.font-pacifico {
-  font-family: 'Pacifico', cursive;
+.icon-btn {
+  @apply absolute top-1/2 -translate-y-1/2 p-2 transition;
+  border-radius: 9999px;
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: white;
 }
 
-.great-vibes-regular {
-  font-family: "Great Vibes", cursive;
-  font-weight: 400;
-  font-style: normal;
+.icon-btn:hover {
+  opacity: 0.85;
 }
 
-a {
-  font-weight: 500;
-  color: #ea2f16;
-  text-decoration: inherit;
+.icon-btn-outline {
+  @apply absolute top-1/2 -translate-y-1/2 p-2 transition;
+  border-radius: 9999px;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
 }
-a:hover {
-  color: #dc2d16;
+
+.icon-btn-outline:hover {
+  background: var(--color-primary);
+  color: white;
+}
+/* =========================================================
+   4️⃣ GLOBAL RESET
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 body {
-  margin: 0;
-  /* display: flex;
-  flex-direction: column; stack header, main, footer vertically */
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
+
+/* =========================================================
+   5️⃣ TYPOGRAPHY SYSTEM
+========================================================= */
+.heading-font {
+  font-family: 'Playfair Display', serif;
+}
+
+.heading-xl {
+  @apply text-4xl md:text-5xl lg:text-6xl;
+}
+
+.heading-lg {
+  @apply text-3xl md:text-4xl;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  @apply text-4xl md:text-5xl lg:text-6xl;
+  font-family: 'Playfair Display', serif;
 }
 
-button {
-  /* border-radius: 8px; */
-  border: none;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: inherit;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #f4371e;
-}
-button:focus,
-button:focus-visible {
-  outline: none;
+h2 {
+  @apply text-3xl md:text-4xl;
+  font-family: 'Playfair Display', serif;
 }
 
-/* LEFT navbar: show first 2 links */
-.md\:grid > div:first-child li:nth-child(n+3) {
-  display: none;
+h3 {
+  @apply text-xl md:text-2xl;
 }
 
-/* RIGHT navbar: show last 2 links */
-.md\:grid > div:last-child li:nth-child(-n+2) {
-  display: none;
+p {
+  @apply text-base leading-relaxed;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* =========================================================
+   6️⃣ LAYOUT SYSTEM
+========================================================= */
+.container-main {
+  @apply max-w-7xl mx-auto px-6 md:px-12;
+}
+
+.section-main {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+
+/* =========================================================
+   7️⃣ BUTTON SYSTEM
+========================================================= */
+.btn-primary {
+  @apply px-8 py-3 text-white transition duration-300;
+  background: var(--color-primary);
+  border-radius: var(--radius-lg);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  @apply px-8 py-3 border transition duration-300;
+  border-radius: var(--radius-md);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+
+/* =========================================================
+   8️⃣ CARD SYSTEM
+========================================================= */
+.card {
+  background: white;
+  border-radius: var(--radius-md);
+  /* padding: 0.1rem; */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+
+/* =========================================================
+   9️⃣ HOVER EFFECTS
+========================================================= */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+
+.input-clean {
+  @apply w-full border p-3 outline-none transition;
+  border-radius: var(--radius-md);
+  border-color: var(--color-border);
+  background: transparent;
+}
+
+.input-clean:focus {
+  border-color: var(--color-primary);
+}
+
+.input-error {
+  border-color: var(--color-primary);
+}
+
+.error-text {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+
+/* =========================================================
+   🔟 ANIMATIONS
+========================================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  a:hover {
-    color: #ea2f16;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
 
-  html, body {
-    overflow-x: hidden;
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
   }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+
+/* =========================================================
+   1️⃣1️⃣ CUSTOM COMPONENT HELPERS
+========================================================= */
+.stats-bar {
+  background: var(--color-secondary);
+  padding: 1.5rem 0;
+}
+
+.round-badge {
+  width: 8rem;
+  height: 8rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(-15deg);
+  transition: 0.3s ease;
+}
+
+.round-badge:hover {
+  transform: rotate(0deg);
 }

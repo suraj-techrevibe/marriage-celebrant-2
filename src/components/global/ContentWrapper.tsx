@@ -7,7 +7,7 @@ interface Props {
 
 const ContentWrapper = ({ children, className = "" }: Props) => {
   return (
-    <div className={`w-full max-w-7xl mx-auto px-6 ${className} break-words`}>
+    <div className={`w-full max-w-6xl mx-auto px-6 ${className} break-words`}>
       {children}
     </div>
   );

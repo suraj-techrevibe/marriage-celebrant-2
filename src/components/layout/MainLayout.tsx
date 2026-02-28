@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Outlet, ScrollRestoration } from "react-router-dom";
-import Footer from "./Footer";
-import NavBar from "./NavBar";
+import Footer1 from "./Footer1";
+import NavBar2 from "./NavBar2";
 
 export default function MainLayout() {
   const [, setIsMobile] = useState(false);
@@ -15,12 +15,13 @@ export default function MainLayout() {
 
   return (
     <div className="min-h-screen flex flex-col w-full">
-      <NavBar />
+      <NavBar2 />
+     
       <main className="flex-1 w-full">
         <Outlet /> {/* child routes render here */}
       </main>
       <ScrollRestoration />
-      <Footer />
+      <Footer1 />
     </div>
   );
 }
