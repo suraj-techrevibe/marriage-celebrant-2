@@ -18,8 +18,7 @@ const testimonials = [
     author: "Aarav & Meera",
   },
   {
-    quote:
-      "The photos truly captured the love and warmth of our special day.",
+    quote: "The photos truly captured the love and warmth of our special day.",
     author: "Rohan & Anika",
   },
 ];
@@ -32,14 +31,11 @@ export default function Section3() {
   };
 
   const nextSlide = () => {
-    setIndex((prev) =>
-      prev === testimonials.length - 1 ? 0 : prev + 1
-    );
+    setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
   };
 
   return (
-    <section className="section-main   bg-[var(--color-bg-soft)] relative overflow-hidden">
-      
+    <section className="section-main bg-[var(--color-bg-soft)] relative overflow-hidden">
       {/* Decorative Flowers */}
       <div className="absolute top-16 right-0 w-48 opacity-90">
         <img src={img1} className="-scale-y-100 -scale-x-100" />
@@ -50,29 +46,30 @@ export default function Section3() {
       </div>
 
       <div className="container-main relative border border-primary p-16 text-center">
-
         {/* Quote Mark */}
         <div className="text-5xl text-primary mb-8 leading-none">“</div>
 
-        {/* Navigation */}
+        {/* Navigation (UNCHANGED) */}
         <button
           onClick={prevSlide}
-          className="icon-btn-outline left-44"
+          className="icon-btn-outline left-8 md:left-44"
         >
           <ChevronLeft size={24} />
         </button>
 
         <button
           onClick={nextSlide}
-          className="icon-btn-outline right-44"
+          className="icon-btn-outline right-8 md:right-44"
         >
           <ChevronRight size={24} />
         </button>
 
-        {/* Testimonial Quote */}
-        <p className="text-xl md:text-2xl italic text-secondary leading-relaxed max-w-3xl mx-auto font-light">
-          {testimonials[index].quote}
-        </p>
+        {/* Quote Wrapper (height stabilized only on mobile) */}
+        <div className="min-h-[160px] md:min-h-0 max-w-sm mx-auto flex items-center justify-center">
+          <p className="text-xl md:text-2xl italic text-secondary leading-relaxed max-w-3xl mx-auto font-light">
+            {testimonials[index].quote}
+          </p>
+        </div>
 
         {/* Author */}
         <div className="mt-8 flex items-center justify-center gap-3">
@@ -84,7 +81,6 @@ export default function Section3() {
 
           <span className="h-px w-10 bg-primary/50"></span>
         </div>
-
       </div>
     </section>
   );

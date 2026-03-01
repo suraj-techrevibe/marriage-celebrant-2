@@ -14,7 +14,7 @@ export default function MainLayout() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col w-full">
+    <div className="min-h-[100dvh] flex flex-col w-full">
       <NavBar2 />
      
       <main className="flex-1 w-full">

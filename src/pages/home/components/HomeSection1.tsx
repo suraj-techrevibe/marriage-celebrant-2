@@ -1,6 +1,9 @@
+import { useState } from "react";
 import img from "../../../assets/hero/figma-image5.png";
+import BookAppointmentModal from "../../../components/global/book-appointment/BookAppointmentModal";
 
 export default function HomeSection1() {
+  const [open, setOpen] = useState(false);
   return (
     <section className="section-main bg-bgSoft mt-24">
       <div className="container-main grid grid-cols-1 md:grid-cols-2 items-center gap-16">
@@ -27,9 +30,13 @@ export default function HomeSection1() {
           </p>
 
           <div className="mt-10 flex justify-center md:justify-start">
-            <button className="btn-primary px-8 py-3 tracking-wider">
+            <button  onClick={() => setOpen(true)}  className="btn-primary px-8 py-3 tracking-wider">
               Start Your Journey
             </button>
+            <BookAppointmentModal
+        isOpen={open}
+        onClose={() => setOpen(false)}
+      />
           </div>
 
         </div>

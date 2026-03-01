@@ -3,6 +3,7 @@ import img1 from "../../../assets/hero/figma-image16.png";
 import img2 from "../../../assets/hero/figma-image15.png";
 import img3 from "../../../assets/hero/figma-image17.png";
 import img from "../../../assets/hero/figma-image21.png";
+import { Link } from "react-router-dom";
 
 const ServicesSection: React.FC = () => {
   const services = [
@@ -97,10 +98,11 @@ const ServicesSection: React.FC = () => {
             We’ve got it covered.
           </p>
 
+          <Link to="/contact">
           <button className="btn-primary">
             CONTACT NOW
           </button>
-
+</Link>
         </div>
       </div>
 

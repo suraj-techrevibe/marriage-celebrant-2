@@ -73,7 +73,7 @@ export default function Home() {
   return (
     <>
       {/* Top-right buttons */}
-      <div className="fixed top-5 right-5 flex gap-2 z-50">
+      {/* <div className="fixed top-5 right-5 flex gap-2 z-50">
         <button
           onClick={toggleEditing}
           className="bg-blue-600 text-white px-4 py-2 rounded shadow-md hover:bg-blue-700 transition"
@@ -88,7 +88,7 @@ export default function Home() {
             Save Changes
           </button>
         )}
-      </div>
+      </div> */}
 
       {/* Hero section */}
       {/* <Hero data={data} setData={setData} isEditing={isEditing} fileRef={fileRef} /> */}

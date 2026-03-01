@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import frame from "../../../assets/hero/rose.png";
 import ContentWrapper from "../../../components/global/ContentWrapper";
 import { useScrollAnimation } from "../../../components/global/animation/useScrollAnimation";
@@ -61,7 +62,9 @@ const AboutUs = () => {
             </p>
 
             <div className="flex justify-center md:justify-start">
+              <Link to="/contact">
               <button className="btn-primary">Contact Us</button>
+              </Link>
             </div>
           </div>
         </div>

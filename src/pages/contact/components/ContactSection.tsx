@@ -7,6 +7,7 @@ import { FaFacebookF, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import ContactForm from "./ContactForm";
 import ContentWrapper from "../../../components/global/ContentWrapper";
+import { Link } from "react-router-dom";
 
 export default function ContactSection() {
   const socialLinks = [
@@ -117,9 +118,11 @@ export default function ContactSection() {
           <p className="mt-4">We’ve got it covered.</p>
 
           <div className="mt-8">
-            <button className="btn-outline bg-white text-black hover:bg-primary hover:text-white">
-              CONTACT NOW
-            </button>
+          <Link to="/contact">
+  <button className="btn-outline bg-white text-black hover:bg-primary hover:text-white">
+    CONTACT NOW
+  </button>
+</Link>
           </div>
         </div>
       </div>

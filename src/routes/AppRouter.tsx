@@ -5,8 +5,8 @@ import MainLayout from "../components/layout/MainLayout";
 import ReferralForm from "../pages/referralform/ReferralForm";
 import Contact from "../pages/contact/Contact";
 import Services from "../pages/services/Services";
-import FAQ from "../pages/gallery copy/FAQ";
 import Gallery from "../pages/gallery/Gallery";
+import Faq from "../pages/faq/FAQ";
 
 // Define all routes
 const routes: RouteObject[] = [
@@ -19,7 +19,7 @@ const routes: RouteObject[] = [
       { path: "/contact", element: <Contact /> },
       { path: "/service", element: <Services /> },
       { path: "/gallery", element: <Gallery /> },
-      { path: "/faq", element: <FAQ /> },
+      { path: "/faq", element: <Faq /> },
     ],
   },
 ];
