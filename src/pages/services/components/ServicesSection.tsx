@@ -4,6 +4,8 @@ import img2 from "../../../assets/hero/figma-image15.png";
 import img3 from "../../../assets/hero/figma-image17.png";
 import img from "../../../assets/hero/figma-image21.png";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import BookAppointmentModal from "../../../components/global/book-appointment/BookAppointmentModal";
 
 const ServicesSection: React.FC = () => {
   const services = [
@@ -23,6 +25,7 @@ const ServicesSection: React.FC = () => {
       image: img3,
     },
   ];
+  const [open, setOpen] = useState(false);
 
   return (
     <section className="w-full">
@@ -68,7 +71,7 @@ const ServicesSection: React.FC = () => {
 
           {/* Button */}
           <div className="mt-12">
-            <button className="btn-primary">
+            <button onClick={() => setOpen(true)} className="btn-primary">
               Book Now
             </button>
           </div>
@@ -103,8 +106,13 @@ const ServicesSection: React.FC = () => {
             CONTACT NOW
           </button>
 </Link>
+
         </div>
       </div>
+      <BookAppointmentModal
+        isOpen={open}
+        onClose={() => setOpen(false)}
+      />
 
     </section>
   );

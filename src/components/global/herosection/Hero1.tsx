@@ -19,7 +19,7 @@ function Hero({ heading, para, bgImage }: HeroProps) {
   }, []);
 
   return (
-    <section className="relative w-full h-[850px] md:h-[600px] mt-24 overflow-hidden flex items-center justify-center">
+    <section className="relative w-full min-h-[70vh] md:min-h-[80vh] mt-24 overflow-hidden flex items-center justify-center py-16 md:py-0">
 
       {/* Parallax Background */}
       <div className="absolute inset-0 overflow-hidden">
