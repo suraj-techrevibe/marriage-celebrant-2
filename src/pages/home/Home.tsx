@@ -14,61 +14,7 @@ interface HeroData {
 }
 
 export default function Home() {
-  const { isEditing, toggleEditing } = useEdit();
-  const [data, setData] = useState<HeroData>({
-    heading: "",
-    para: "",
-    heroImage: "/assets/hero/default-hero.jpg", // default image path
-  });
-  const [loading, setLoading] = useState(true);
-
-  // Keep a ref to the file selected
-  const fileRef = useRef<File | null>(null);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/home-data")
-      .then((res) => res.json())
-      .then((json) => {
-        setData({
-          heading: json.heading ?? "",
-          para: json.para ?? "",
-          heroImage: json.heroImage ?? "/assets/hero/default-hero.jpg",
-        });
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
-  }, []);
-
-  // Centralized save
-  const saveData = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("heading", data.heading);
-      formData.append("para", data.para);
-      if (fileRef.current) formData.append("heroImage", fileRef.current);
-
-      const res = await fetch("http://localhost:3000/save-home", {
-        method: "POST",
-        body: formData,
-      });
-
-      const result = await res.json();
-      if (result.success) {
-        setData(result.data);
-        alert("Saved successfully!");
-        toggleEditing(); // exit edit mode
-        fileRef.current = null; // reset
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Failed to save. Is server running?");
-    }
-  };
-
-  if (loading) return <p>Loading...</p>;
+  
 
   return (
     <>

@@ -33,7 +33,7 @@ const NavBar2: React.FC = () => {
 
   const allLinks: NavItem[] = [...leftLinks, ...rightLinks];
 
-  const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
+  const navLinkStyle = ({  }: { isActive: boolean }) =>
     `
     font-semibold transition-all duration-300
     ${scrolled ? "text-sm" : "text-base"}
