@@ -1,38 +1,42 @@
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import data from "../../config/data.json";
 
-const SEO = () => {
-  const { business } = data;
+export default function SEO() {
+  const [meta, setMeta] = useState<any>(null);
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: business.name,
-    address: business.address,
-    telephone: business.phone,
-    url: business.website,
-    logo: business.logo
-  };
+  useEffect(() => {
+    fetch("/siteMeta.json")
+      .then(res => res.json())
+      .then(data => setMeta(data));
+  }, []);
+
+  if (!meta) return null;
 
   return (
     <Helmet>
-      <title>{business.name}</title>
-      <meta name="description" content={business.description} />
-      <link rel="canonical" href={business.website} />
+      <title>{meta.title}</title>
+      <meta name="description" content={meta.description} />
+      <link rel="canonical" href={meta.url} />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />
-      <meta property="og:title" content={business.name} />
-      <meta property="og:description" content={business.description} />
-      <meta property="og:url" content={business.website} />
-      <meta property="og:image" content={business.ogImage} />
+      <meta property="og:title" content={meta.title} />
+      <meta property="og:description" content={meta.description} />
+      <meta property="og:url" content={meta.url} />
+      <meta property="og:image" content={meta.ogImage} />
 
       {/* Structured Data */}
       <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: meta.name,
+          address: meta.address,
+          telephone: meta.phone,
+          url: meta.url,
+          logo: meta.logo
+        })}
       </script>
     </Helmet>
   );
-};
-
-export default SEO;
+}

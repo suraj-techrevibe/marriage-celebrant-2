@@ -1,7 +1,6 @@
 import { FaFacebookF, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import logo from "../../assets/logo/nirava_logo.png";
-import ndislogo from "../../assets/logo/ndis_logo.png";
 
 const Footer = () => {
   const socialLinks = [
@@ -57,11 +56,7 @@ const Footer = () => {
                 alt="Nirava Logo"
                 className="h-16 w-auto object-contain"
               />
-              <img
-                src={ndislogo}
-                alt="NDIS Logo"
-                className="h-16 w-auto object-contain "
-              />
+             
             </div>
           </div>
 
