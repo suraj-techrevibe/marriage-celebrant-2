@@ -11,31 +11,11 @@ export default function Home() {
 
   return (
     <>
-      {/* Top-right buttons */}
-      {/* <div className="fixed top-5 right-5 flex gap-2 z-50">
-        <button
-          onClick={toggleEditing}
-          className="bg-blue-600 text-white px-4 py-2 rounded shadow-md hover:bg-blue-700 transition"
-        >
-          {isEditing ? "Exit Edit" : "Edit"}
-        </button>
-        {isEditing && (
-          <button
-            onClick={saveData}
-            className="bg-green-600 text-white px-4 py-2 rounded shadow-md hover:bg-green-700 transition"
-          >
-            Save Changes
-          </button>
-        )}
-      </div> */}
-
-      {/* Hero section */}
-      {/* <Hero data={data} setData={setData} isEditing={isEditing} fileRef={fileRef} /> */}
+   
       <HomeSection1 />
       <AboutUs />
       <HomeSection2 />
       <WhyChoose />
-      {/* <Section3 /> */}
       <Section4 />
     </>
   );

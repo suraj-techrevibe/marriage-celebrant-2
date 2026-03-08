@@ -11,6 +11,7 @@ interface NavItem {
 const NavBar2: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   // Scroll detection
   useEffect(() => {
@@ -27,19 +28,16 @@ const NavBar2: React.FC = () => {
 
   const rightLinks: NavItem[] = [
     { name: "Gallery", to: "/gallery" },
-    { name: "FAQ", to: "/faq" },
+    // { name: "FAQ", to: "/faq" },
     { name: "Contact Us", to: "/contact" },
   ];
 
   const allLinks: NavItem[] = [...leftLinks, ...rightLinks];
 
-  const navLinkStyle = ({  }: { isActive: boolean }) =>
-    `
-    font-semibold transition-all duration-300
-    ${scrolled ? "text-sm" : "text-base"}
-  `;
-
-  const [open, setOpen] = useState(false);
+  const navLinkStyle = ({ }: { isActive: boolean }) =>
+    `font-semibold transition-all duration-300 ${
+      scrolled ? "text-sm" : "text-base"
+    }`;
 
   return (
     <>
@@ -55,18 +53,26 @@ const NavBar2: React.FC = () => {
         }}
       >
         {/* ===== Desktop Nav ===== */}
-        <div className="hidden md:flex max-w-6xl mx-auto justify-between items-center py-4">
-          
+        <div
+          className={`hidden md:flex max-w-5xl mx-auto items-center justify-between transition-all duration-300 ${
+            scrolled ? "py-2" : "py-6"
+          }`}
+        >
           {/* Left Links */}
-          <ul className="flex items-center pl-24 gap-16">
+          <ul
+            className={`flex items-center transition-all duration-300 ${
+              scrolled ? "gap-12" : "gap-12"
+            }`}
+          >
             {leftLinks.map((link) => (
               <li key={link.name}>
                 <NavLink
                   to={link.to}
-                  onClick={() => setIsOpen(false)}
-                  className={`group relative font-semibold transition-all duration-300 ${
-                    scrolled ? "text-sm" : "text-base"
-                  }`}
+                  className={({  }) =>
+                    `group relative font-semibold transition-all duration-300 ${
+                      scrolled ? "text-sm" : "text-base"
+                    }`
+                  }
                   style={({ isActive }) => ({
                     color: isActive
                       ? "var(--color-primary)"
@@ -76,18 +82,16 @@ const NavBar2: React.FC = () => {
                   {({ isActive }) => (
                     <span className="relative inline-block">
                       {link.name}
-
+                      <span
+                        className="absolute left-0 -bottom-1 h-[2px] w-0 group-hover:w-full transition-all duration-300"
+                        style={{ background: "var(--color-primary)" }}
+                      />
                       <span
                         className="absolute left-0 -bottom-1 h-[2px] transition-all duration-300"
                         style={{
                           width: isActive ? "100%" : "0%",
                           background: "var(--color-primary)",
                         }}
-                      />
-
-                      <span
-                        className="absolute left-0 -bottom-1 h-[2px] w-0 group-hover:w-full transition-all duration-300"
-                        style={{ background: "var(--color-primary)" }}
                       />
                     </span>
                   )}
@@ -97,67 +101,88 @@ const NavBar2: React.FC = () => {
           </ul>
 
           {/* Center Logo */}
-          <Link to="/">
+          <Link to="/" className="flex justify-center">
             <img
               src={logo}
               alt="Nirava"
-              className={`transition-all duration-500 ${
-                scrolled ? "h-12" : "h-24"
+              className={`transition-all duration-300 ${
+                scrolled ? "h-12" : "h-20"
               }`}
             />
           </Link>
 
           {/* Right Links */}
-          <ul className="flex items-start pr-36 gap-16">
-            {rightLinks.map((link) => (
-              <li key={link.name}>
-                <NavLink
-                  to={link.to}
-                  onClick={() => setIsOpen(false)}
-                  className={({ isActive }) =>
-                    `
-                    relative font-semibold transition-all duration-300
-                    ${scrolled ? "text-sm" : "text-base"}
-                    ${isActive ? "after:w-full" : ""}
-                    after:content-['']
-                    after:absolute
-                    after:left-0
-                    after:-bottom-1
-                    after:h-[2px]
-                    after:w-0
-                    after:bg-[var(--color-primary)]
-                    after:transition-all
-                    after:duration-300
-                    hover:after:w-full
-                  `
-                  }
-                  style={({ isActive }) => ({
-                    color: isActive
-                      ? "var(--color-primary)"
-                      : "var(--color-text-main)",
-                  })}
-                >
-                  {link.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+          <div className="flex items-center gap-10">
+            <ul
+              className={`flex items-center transition-all duration-300 ${
+                scrolled ? "gap-12" : "gap-12"
+              }`}
+            >
+              {rightLinks.map((link) => (
+                <li key={link.name}>
+                  <NavLink
+                    to={link.to}
+                    className={({ isActive }) =>
+                      `relative font-semibold transition-all duration-300 ${
+                        scrolled ? "text-sm" : "text-base"
+                      } after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[var(--color-primary)] after:transition-all after:duration-300 hover:after:w-full ${
+                        isActive
+                          ? "after:w-full text-[var(--color-primary)]"
+                          : ""
+                      }`
+                    }
+                    style={({ isActive }) => ({
+                      color: isActive
+                        ? "var(--color-primary)"
+                        : "var(--color-text-main)",
+                    })}
+                  >
+                    {link.name}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+
+            <button
+              onClick={() => setOpen(true)}
+              className={`btn-primary tracking-wider transition-all duration-300 ml-5 ${
+                scrolled ? "px-4 py-2 text-sm" : "px-8 py-3"
+              }`}
+            >
+              Book Enquiry
+            </button>
+          </div>
         </div>
 
         {/* ===== Mobile Top Bar ===== */}
-        <div className="md:hidden flex items-center justify-between px-6 py-4">
-          <Link to="/">
-            <img src={logo} alt="Nirava" className="h-16 w-auto" />
-          </Link>
+        {/* ===== Mobile Top Bar ===== */}
+<div className="md:hidden relative flex items-center justify-between px-6 py-4">
 
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-4xl leading-none"
-            style={{ color: "var(--color-text-main)" }}
-          >
-            {isOpen ? "✕" : "☰"}
-          </button>
-        </div>
+{/* Logo */}
+<Link to="/">
+  <img src={logo} alt="Nirava" className="h-16 w-auto" />
+</Link>
+
+{/* Center Modal Button */}
+<div className="relative items-center pr-5 justify-center">
+  <button
+    onClick={() => setOpen(true)}
+    className="btn-primary px-4 py-2 text-sm tracking-wider"
+  >
+    Book Enquiry
+  </button>
+</div>
+
+{/* Menu Icon */}
+<button
+  onClick={() => setIsOpen(!isOpen)}
+  className="text-4xl leading-none"
+  style={{ color: "var(--color-text-main)" }}
+>
+  {isOpen ? "✕" : "☰"}
+</button>
+
+</div>
       </header>
 
       {/* ================= OVERLAY ================= */}
@@ -168,47 +193,41 @@ const NavBar2: React.FC = () => {
         />
       )}
 
-      {/* ================= DRAWER ================= */}
-      <div
-        className={`fixed top-0 right-0 w-64 h-screen bg-white shadow-xl z-[1001] transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="p-6 mt-20">
-          <ul className="flex flex-col space-y-4">
-            {allLinks.map((link) => (
-              <li key={link.name}>
-                <NavLink
-                  to={link.to}
-                  onClick={() => setIsOpen(false)}
-                  className={({ isActive }) => `${navLinkStyle({ isActive })}`}
-                  style={({ isActive }) => ({
-                    color: isActive
-                      ? "var(--color-primary)"
-                      : "var(--color-text-main)",
-                    textDecoration: isActive ? "underline" : "none",
-                    textUnderlineOffset: "6px",
-                  })}
-                >
-                  {link.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </div>
+     {/* ================= DRAWER ================= */}
+<div
+  className={`fixed top-0 right-0 w-64 h-screen bg-white shadow-xl z-[1001] transform transition-transform duration-300 ${
+    isOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+  <div className="p-6 mt-20 flex flex-col items-center text-center">
+    
+    <ul className="flex flex-col space-y-6 items-center">
+      {allLinks.map((link) => (
+        <li key={link.name}>
+          <NavLink
+            to={link.to}
+            onClick={() => setIsOpen(false)}
+            className={({ isActive }) => navLinkStyle({ isActive })}
+            style={({ isActive }) => ({
+              color: isActive
+                ? "var(--color-primary)"
+                : "var(--color-text-main)",
+              textDecoration: isActive ? "underline" : "none",
+              textUnderlineOffset: "6px",
+            })}
+          >
+            {link.name}
+          </NavLink>
+        </li>
+      ))}
+    </ul>
 
-        <div className="mt-10 flex justify-center md:justify-start">
-            <button  onClick={() => setOpen(true)}  className="btn-primary px-8 py-3 tracking-wider">
-              Start Your Journey
-            </button>
-         
-          </div>
-        
-      </div>
-      <BookAppointmentModal
-        isOpen={open}
-        onClose={() => setOpen(false)}
-      />
+   
+
+  </div>
+</div>
+
+<BookAppointmentModal isOpen={open} onClose={() => setOpen(false)} />
     </>
   );
 };

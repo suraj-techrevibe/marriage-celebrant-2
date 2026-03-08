@@ -51,7 +51,7 @@ export default function Section4() {
         {/* Left Image */}
         <div className="relative flex justify-center">
           <div
-            className="w-[260px] sm:w-[320px] md:w-[480px] aspect-square 
+            className="w-[380px] sm:w-[320px] md:w-[480px] aspect-square 
             [clip-path:path('M190,70 C190,20 120,0 95,45 C70,0 0,20 0,70 C0,120 95,190 95,190 C95,190 190,120 190,70 Z')] 
             overflow-hidden shadow-xl"
           >
@@ -67,8 +67,8 @@ export default function Section4() {
 
 
         {/* FAQ Content */}
-        <div>
-          <p className="text-sm tracking-[0.3em] text-primary uppercase mb-4">
+        <div className="px-8 md:px-0">
+          <p className="text-sm  tracking-[0.3em] text-primary uppercase mb-4">
             Ready to get in touch?
           </p>
 
